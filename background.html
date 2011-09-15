@@ -1,0 +1,27 @@
+<script>
+var TOTAL = 0;
+var DATA = 0;
+
+//got a message from content script
+chrome.extension.onRequest.addListener(
+  function(request, sender, sendResponse) {
+	updateUI(request.size);
+	DATA = request.data;
+	sendResponse({});
+  }
+ );
+
+//our tabs change, so ask our CS to udpate crap
+chrome.tabs.onSelectionChanged.addListener(function(tabId,selectInfo) {
+		chrome.tabs.sendRequest(tabId,{});
+	}
+);
+
+function updateUI(total) {
+	chrome.browserAction.setTitle({"title":"There are "+total +" items in Local Storage"});
+	var theSize = Math.min(9, total);
+	chrome.browserAction.setIcon({"path":"img/glass_numbers_"+theSize+".png"});	
+	//Copy to global scope so our popup can get it
+	TOTAL = total;
+}
+</script>

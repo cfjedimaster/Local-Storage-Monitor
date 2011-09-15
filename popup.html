@@ -1,0 +1,30 @@
+<style>
+body {
+  min-width:500px;
+  overflow-x:hidden;
+}
+
+table, th, td {
+border: 1px solid black;
+width: 480px;
+}
+</style>
+<script type="text/javascript" src="jquery.min.js"></script> 
+<script>
+$(document).ready(function() {
+	var bg = chrome.extension.getBackgroundPage();
+	$("#header").html("There are " + bg.TOTAL + " items in local storage.");
+	if(bg.TOTAL > 0) {
+		var html = "";
+		for(key in bg.DATA) {
+			html += "<tr><td>" + key + "</td><td>"+ bg.DATA[key] + "</td></tr>";
+		}
+		$("#data").append(html);
+	}
+});
+</script>
+
+<h2>Local Storage Report</h2>
+
+<div id="header"></div>
+<table id="data"></table>

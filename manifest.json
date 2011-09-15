@@ -1,0 +1,18 @@
+{
+  "name": "LocalStorage Monitor",
+  "version": "1.0",
+  "description": "Flags when a site is using local storage.",
+  "browser_action": {
+	"default_icon": "img/glass_numbers_0.png",
+	"default_title": "There are 0 items in Local Storage",
+	"popup":"popup.html"
+	},
+  "permissions": [
+	"tabs"
+  ],
+  "background_page":"background.html",
+  "content_scripts": [{
+	"matches":["http://*/*"],
+	"js":["jquery.min.js","myscript.js"]
+	}]
+}
