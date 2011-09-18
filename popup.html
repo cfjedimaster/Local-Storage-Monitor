@@ -2,18 +2,27 @@
 body {
   min-width:500px;
   overflow-x:hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 1em;
 }
 
-table, th, td {
-border: 1px solid black;
-width: 480px;
+table, td {
+	padding: 0;
+	width: 480px;
+}
+
+th, td {
+	padding: 4px;
+	border: 1px solid black;
 }
 </style>
-<script type="text/javascript" src="jquery.min.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> 
 <script>
 $(document).ready(function() {
 	var bg = chrome.extension.getBackgroundPage();
+
 	$("#header").html("There are " + bg.TOTAL + " items in local storage.");
+	
 	if(bg.TOTAL > 0) {
 		var html = "";
 		for(key in bg.DATA) {
