@@ -9,6 +9,7 @@ function getData() {
 			lsSize--;
 		}
 	}
+	
 	chrome.extension.sendRequest({"size": lsSize,"data":data});
 }
 
