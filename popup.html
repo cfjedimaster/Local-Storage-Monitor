@@ -2,22 +2,84 @@
 body {
   min-width:500px;
   overflow-x:hidden;
+  font-family: Arial, Helvetica, sans-serif;
+  font: 1em;
 }
 
-table, th, td {
-border: 1px solid black;
-width: 480px;
+table, td {
+	padding: 0;
+	width: 480px;
+}
+
+th, td {
+	padding: 4px;
+	border: 1px solid black;
+	vertical-align: top;
 }
 </style>
-<script type="text/javascript" src="jquery.min.js"></script> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
 	var bg = chrome.extension.getBackgroundPage();
+	
+	var makeDataTable = function(data) {
+		
+		var objectDataTable = "<table>";
+		
+		for(key in data) {
+			objectDataTable += "<tr><td>" + key + "</td><td>";
+
+			var itemObject;
+			
+			try {
+				itemObject = JSON.parse(data[key]);
+			}
+			catch(err) {
+				itemObject = data[key];
+			}
+			
+			if(typeof itemObject == "object")
+			{
+				objectDataTable += makeDataTable(itemObject);
+			}
+			else {
+				objectDataTable += itemObject;
+			}
+			
+			objectDataTable += "</td></tr>";
+		}
+		
+		objectDataTable += "</table>";
+		
+		return objectDataTable;
+	}
+	
 	$("#header").html("There are " + bg.TOTAL + " items in local storage.");
+	
 	if(bg.TOTAL > 0) {
 		var html = "";
 		for(key in bg.DATA) {
-			html += "<tr><td>" + key + "</td><td>"+ bg.DATA[key] + "</td></tr>";
+			html += "<tr><td>" + key + "</td><td>";
+			
+			var itemObject;
+
+			// lets see if this is a JSON object
+			try {
+				itemObject = JSON.parse(bg.DATA[key]);
+			}
+			catch(err) {
+				itemObject = bg.DATA[key];
+			}
+			
+			if(typeof itemObject == "object")
+			{
+				html += makeDataTable(itemObject);
+			}
+			else {
+				html += itemObject;
+			}
+			
+			html += "</td></tr>";
 		}
 		$("#data").append(html);
 	}

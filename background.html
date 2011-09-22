@@ -5,7 +5,15 @@ var DATA = 0;
 //got a message from content script
 chrome.extension.onRequest.addListener(
   function(request, sender, sendResponse) {
-	updateUI(request.size);
+	 var actualSize = 0;
+	 // for usability, let's not display any null entries.
+	 for(key in request.data) {
+		if(key && key.length > 0) {
+			actualSize++;
+		}
+	}
+	  
+	updateUI(actualSize);
 	DATA = request.data;
 	sendResponse({});
   }
