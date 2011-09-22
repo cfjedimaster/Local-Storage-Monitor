@@ -16,12 +16,9 @@ Contributors:
    See the License for the specific language governing permissions and
    limitations under the License.
 
-
-
 Icons from: http://www.bittbox.com/freebies/free-glass-number-icons
 
 =======================================================================================================================================================================================
-
 
 Last Updated: September 21, 2011 (1.2)
 FIXED: issue where null keys where appearing in the list. Values were also null, so removed these entirely from the report
