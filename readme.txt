@@ -1,6 +1,9 @@
 LICENSE 
 Copyright 2011 Raymond Camden
 
+Contributors:
+	TJ Downes
+	
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
@@ -20,4 +23,8 @@ Icons from: http://www.bittbox.com/freebies/free-glass-number-icons
 =======================================================================================================================================================================================
 
 
-Last Updated: September 15, 2011 (1.0)
+Last Updated: September 21, 2011 (1.2)
+FIXED: issue where null keys where appearing in the list. Values were also null, so removed these entirely from the report
+FIXED: issue where HTTPS URLS did not update the report, as they were excluded
+NEW: Parses JSON strings into table data where in local storage value fields 
+IMPROVED: All javascripts are now referenced via CDN, using Google. This allows for a smaller and cleaner package
