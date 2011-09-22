@@ -1,9 +1,15 @@
 function getData() {
 	var lsSize = localStorage.length;
-	data = {};
+	var data = {};
 	for(key in localStorage) {
-		data[key] = localStorage[key];
+		if(key && key.length > 0) {
+			data[key] = localStorage[key];
+		}
+		else {
+			lsSize--;
+		}
 	}
+	
 	chrome.extension.sendRequest({"size": lsSize,"data":data});
 }
 
