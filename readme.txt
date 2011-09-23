@@ -2,9 +2,15 @@ LICENSE
 Copyright 2011 Raymond Camden
 
 Contributors:
+<<<<<<< HEAD
 	TJ Downes
 	Andy Matthews
 	
+=======
+   TJ Downes
+   Andy Matthews
+   
+>>>>>>> Added conditional to badge text so that it only changes when total items are greater than 0
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
@@ -19,9 +25,16 @@ Contributors:
 
 Icon from: Andy Matthews
 
+<<<<<<< HEAD
 =======================================================================================================================================================================================
 
 Last Updated: September 23, 2011 (1.3)
+=======
+=========================================================================================================
+
+Last Updated: September 23, 2011 (1.3.1)
+FIXED: Added conditional to badge text so that it only displays when count is greater than 0
+>>>>>>> Added conditional to badge text so that it only changes when total items are greater than 0
 ADDED: New extension icon, badge text for Local Storage count.
 FIXED: issue where null keys where appearing in the list. Values were also null, so removed these entirely from the report
 FIXED: issue where HTTPS URLS did not update the report, as they were excluded
