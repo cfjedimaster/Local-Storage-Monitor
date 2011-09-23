@@ -3,6 +3,7 @@ Copyright 2011 Raymond Camden
 
 Contributors:
 	TJ Downes
+	Andy Matthews
 	
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -16,14 +17,12 @@ Contributors:
    See the License for the specific language governing permissions and
    limitations under the License.
 
-
-
-Icons from: http://www.bittbox.com/freebies/free-glass-number-icons
+Icon from: Andy Matthews
 
 =======================================================================================================================================================================================
 
-
-Last Updated: September 21, 2011 (1.2)
+Last Updated: September 23, 2011 (1.3)
+ADDED: New extension icon, badge text for Local Storage count.
 FIXED: issue where null keys where appearing in the list. Values were also null, so removed these entirely from the report
 FIXED: issue where HTTPS URLS did not update the report, as they were excluded
 NEW: Parses JSON strings into table data where in local storage value fields 
