@@ -1,9 +1,14 @@
 {
   "name": "LocalStorage Monitor",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Flags when a site is using local storage.",
+  "icons": {
+	  "16": "img/local-storage-monitor-icon-16.png",
+	  "48": "img/local-storage-monitor-icon-48.png",
+	  "128": "img/local-storage-monitor-icon-128.png"
+  },
   "browser_action": {
-	"default_icon": "img/local-storage-monitor-icon.png",
+	"default_icon": "img/local-storage-monitor-icon-48.png",
 	"default_title": "There are 0 items in Local Storage",
 	"popup":"popup.html"
 	},

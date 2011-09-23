@@ -23,7 +23,8 @@ Icon from: Andy Matthews
 
 =========================================================================================================
 
-Last Updated: September 23, 2011 (1.3.1)
+Last Updated: September 23, 2011 (1.3.2)
+ADDED: 3 icon sizes, 16, 48, and 128. Also cleaned up icon.
 FIXED: Added conditional to badge text so that it only displays when count is greater than 0
 ADDED: New extension icon, badge text for Local Storage count.
 The above by Andy Mattews.
