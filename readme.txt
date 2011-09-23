@@ -26,6 +26,9 @@ Icon from: Andy Matthews
 Last Updated: September 23, 2011 (1.3.1)
 FIXED: Added conditional to badge text so that it only displays when count is greater than 0
 ADDED: New extension icon, badge text for Local Storage count.
+The above by Andy Mattews.
+
+Last Updated: September 23, 2011 (1.2)
 FIXED: issue where null keys where appearing in the list. Values were also null, so removed these entirely from the report
 FIXED: issue where HTTPS URLS did not update the report, as they were excluded
 NEW: Parses JSON strings into table data where in local storage value fields 
