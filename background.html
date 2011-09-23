@@ -27,8 +27,7 @@ chrome.tabs.onSelectionChanged.addListener(function(tabId,selectInfo) {
 
 function updateUI(total) {
 	chrome.browserAction.setTitle({"title":"There are "+total +" items in Local Storage"});
-	var theSize = Math.min(9, total);
-	chrome.browserAction.setIcon({"path":"img/glass_numbers_"+theSize+".png"});	
+	chrome.browserAction.setBadgeText({'text':total.toString()});
 	//Copy to global scope so our popup can get it
 	TOTAL = total;
 }
