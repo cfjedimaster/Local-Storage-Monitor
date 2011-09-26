@@ -1,6 +1,6 @@
 {
   "name": "LocalStorage Monitor",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Flags when a site is using local storage.",
   "icons": {
 	  "16": "img/local-storage-monitor-icon-16.png",
