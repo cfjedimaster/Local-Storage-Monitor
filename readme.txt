@@ -23,6 +23,10 @@ Icon from: Andy Matthews
 
 =========================================================================================================
 
+Last Updated: September 26, 2011 (1.3.3)
+Fixed logic bug when hitting a site with 0 items.
+
+
 Last Updated: September 23, 2011 (1.3.2)
 ADDED: 3 icon sizes, 16, 48, and 128. Also cleaned up icon.
 FIXED: Added conditional to badge text so that it only displays when count is greater than 0
