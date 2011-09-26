@@ -25,9 +25,9 @@ chrome.tabs.onSelectionChanged.addListener(function(tabId,selectInfo) {
 	}
 );
 
-function updateUI(total) {
+function updateUI(total) { 
 	chrome.browserAction.setTitle({"title":"There are "+total +" items in Local Storage"});
-	if (total > 0) chrome.browserAction.setBadgeText({'text':total.toString()});
+	chrome.browserAction.setBadgeText({'text':total.toString()});
 	//Copy to global scope so our popup can get it
 	TOTAL = total;
 }
