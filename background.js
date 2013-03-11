@@ -16,6 +16,8 @@ chrome.extension.onRequest.addListener(
 
 		updateUI(actualSize);
 		DATA = request.data;
+		MB = request.mb;
+		KB = request.kb;
 		sendResponse({});
 	}
 );

@@ -32,9 +32,9 @@ $(document).ready(function() {
 
 		return objectDataTable;
 	}
-	
-	$('h3').html("There are " + bg.TOTAL + " items in local storage.");
-	
+
+	$('h3').html("There are " + bg.TOTAL + " items in local storage, using " + bg.KB + "KB (" + bg.MB + "MB)");
+
 	if(bg.TOTAL > 0) {
 		var html = "";
 		for(key in bg.DATA) {
