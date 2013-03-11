@@ -23,6 +23,9 @@ Icon from: Andy Matthews
 
 =========================================================================================================
 
+Last Updated: March 11, 2013 (1.5.1)
+Adam Tuttle added a size report.
+
 Last Updated: March 11, 2013 (1.5)
 Update to v2 manifest support.
 
