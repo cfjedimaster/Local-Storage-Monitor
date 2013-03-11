@@ -1,4 +1,3 @@
-<script>
 var TOTAL = 0;
 var DATA = 0;
 
@@ -31,4 +30,3 @@ function updateUI(total) {
 	//Copy to global scope so our popup can get it
 	TOTAL = total;
 }
-</script>

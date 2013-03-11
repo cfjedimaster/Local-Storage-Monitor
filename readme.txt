@@ -23,6 +23,9 @@ Icon from: Andy Matthews
 
 =========================================================================================================
 
+Last Updated: March 11, 2013 (1.5)
+Update to v2 manifest support.
+
 Last Updated: September 26, 2011 (1.3.3)
 Fixed logic bug when hitting a site with 0 items.
 
