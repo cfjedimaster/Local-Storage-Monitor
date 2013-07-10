@@ -6,6 +6,7 @@ Copyright 2011 Raymond Camden
 Contributors:
 	TJ Downes
 	Andy Matthews
+	Afforess
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -22,6 +23,8 @@ Contributors:
 Icon from: Andy Matthews
 
 =========================================================================================================
+Last Updated: March 11, 2013 (1.5.2)
+Afforess added a 'Delete All' button
 
 Last Updated: March 11, 2013 (1.5.1)
 Adam Tuttle added a size report.
@@ -31,7 +34,6 @@ Update to v2 manifest support.
 
 Last Updated: September 26, 2011 (1.3.3)
 Fixed logic bug when hitting a site with 0 items.
-
 
 Last Updated: September 23, 2011 (1.3.2)
 ADDED: 3 icon sizes, 16, 48, and 128. Also cleaned up icon.

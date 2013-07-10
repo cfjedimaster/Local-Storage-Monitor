@@ -33,7 +33,11 @@ $(document).ready(function() {
 		return objectDataTable;
 	}
 
-	$('h3').html("There are " + bg.TOTAL + " items in local storage, using " + bg.KB + "KB (" + bg.MB + "MB)");
+	$('h3').html("There are " + bg.TOTAL + " items in local storage, using " + bg.KB + "KB (" + bg.MB + "MB)" + (bg.TOTAL > 0 ? " <button id='delete'>Delete All</button>" : ""));
+	
+	$('#delete').on('click', function() {
+		chrome.extension.getBackgroundPage().deleteAll();
+	});
 
 	if(bg.TOTAL > 0) {
 		var html = "";
