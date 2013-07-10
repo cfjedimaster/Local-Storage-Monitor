@@ -25,6 +25,7 @@ Icon from: Andy Matthews
 =========================================================================================================
 Last Updated: March 11, 2013 (1.5.2)
 Afforess added a 'Delete All' button
+Afforess added a 'Delete' button for individual storage items
 
 Last Updated: March 11, 2013 (1.5.1)
 Adam Tuttle added a size report.

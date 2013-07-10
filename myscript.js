@@ -29,6 +29,10 @@ chrome.extension.onRequest.addListener(
 			deleteAllStorage();
 			getData();
 			sendResponse({});
+		} else if (request['action'] == "delete_item") {
+			localStorage.removeItem(request['item']);
+			getData();
+			sendResponse({});
 		} else if (request['action'] == "update_storage") {
 			getData();
 			sendResponse({});

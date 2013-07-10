@@ -33,16 +33,25 @@ $(document).ready(function() {
 		return objectDataTable;
 	}
 
-	$('h3').html("There are " + bg.TOTAL + " items in local storage, using " + bg.KB + "KB (" + bg.MB + "MB)" + (bg.TOTAL > 0 ? " <button id='delete'>Delete All</button>" : ""));
+	var updateHeader = function() {
+		var bg = chrome.extension.getBackgroundPage();
+		$('h3').html("There are " + bg.TOTAL + " items in local storage, using " + bg.KB + "KB (" + bg.MB + "MB)" + (bg.TOTAL > 0 ? " <button id='delete'>Delete All</button>" : ""));
+	};
+	updateHeader();
 	
 	$('#delete').on('click', function() {
 		chrome.extension.getBackgroundPage().deleteAll();
 	});
-
+	
+	var idKeyMap = new Object();
 	if(bg.TOTAL > 0) {
 		var html = "";
+		
+		var id = 0;
 		for(key in bg.DATA) {
-			html += "<tr><td>" + key + "</td><td>";
+			html += "<tr id='" + id + "'><td>" + key + "</td><td>";
+			
+			idKeyMap[id] = key;
 
 			var itemObject;
 
@@ -62,8 +71,19 @@ $(document).ready(function() {
 				html += itemObject;
 			}
 
-			html += "</td></tr>";
+			html += "</td><td><button name='" + id + "'>Delete</button></td></tr>";
+			
+			id++;
 		}
+
 		$("#data").append(html);
+						
+		$("button").on('click', function() {
+			var name = $(this).prop('name');
+			$("#" + name).remove();
+			chrome.extension.getBackgroundPage().deleteItem(idKeyMap[name]);
+			setTimeout(updateHeader, 250);
+		});
+
 	}
 });

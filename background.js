@@ -16,7 +16,6 @@ chrome.extension.onRequest.addListener(
 		}
 
 		updateUI(actualSize);
-		chrome.tabs.update(selectedTabId, { selected: true } );
 		DATA = request.data;
 		MB = request.mb;
 		KB = request.kb;
@@ -28,7 +27,7 @@ chrome.extension.onRequest.addListener(
 chrome.tabs.onSelectionChanged.addListener(
 	function(tabId,selectInfo) {
 		selectedTabId = tabId;
-		chrome.tabs.sendRequest(tabId,{});
+		chrome.tabs.sendRequest(tabId,{action: 'update_storage'});
 	}
 );
 
@@ -41,4 +40,9 @@ function updateUI(total) {
 
 function deleteAll() {
 	chrome.tabs.sendRequest(selectedTabId, {action: 'delete_all'});
+	chrome.tabs.update(selectedTabId, { selected: true } );
+}
+
+function deleteItem(key) {
+	chrome.tabs.sendRequest(selectedTabId, {action: 'delete_item', item: key});
 }
