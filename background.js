@@ -2,6 +2,7 @@ var TOTAL = 0;
 var DATA = 0;
 var KB = 0;
 var MB = 0;
+var selectedTabId = -1;
 
 //got a message from content script
 chrome.extension.onRequest.addListener(
@@ -18,14 +19,15 @@ chrome.extension.onRequest.addListener(
 		DATA = request.data;
 		MB = request.mb;
 		KB = request.kb;
-		sendResponse({});
+		sendResponse({action: 'update_storage'});
 	}
 );
 
 //our tabs change, so ask our CS to udpate crap
 chrome.tabs.onSelectionChanged.addListener(
 	function(tabId,selectInfo) {
-		chrome.tabs.sendRequest(tabId,{});
+		selectedTabId = tabId;
+		chrome.tabs.sendRequest(tabId,{action: 'update_storage'});
 	}
 );
 
@@ -34,4 +36,13 @@ function updateUI(total) {
 	chrome.browserAction.setBadgeText({'text':total.toString()});
 	//Copy to global scope so our popup can get it
 	TOTAL = total;
+}
+
+function deleteAll() {
+	chrome.tabs.sendRequest(selectedTabId, {action: 'delete_all'});
+	chrome.tabs.update(selectedTabId, { selected: true } );
+}
+
+function deleteItem(key) {
+	chrome.tabs.sendRequest(selectedTabId, {action: 'delete_item', item: key});
 }

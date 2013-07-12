@@ -17,10 +17,26 @@ function getData() {
 	chrome.extension.sendRequest({ "size": lsSize, "data": data, "mb": mb, "kb": kb });
 }
 
+function deleteAllStorage() {
+	for(key in localStorage) {
+		localStorage.removeItem(key);
+	}
+}
+
 chrome.extension.onRequest.addListener(
 	function(request, sender, sendResponse) {
-		getData();
-		sendResponse({});
+		if (request['action'] == "delete_all") {
+			deleteAllStorage();
+			getData();
+			sendResponse({});
+		} else if (request['action'] == "delete_item") {
+			localStorage.removeItem(request['item']);
+			getData();
+			sendResponse({});
+		} else if (request['action'] == "update_storage") {
+			getData();
+			sendResponse({});
+		}
 	}
 );
 
